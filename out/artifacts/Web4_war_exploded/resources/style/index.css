@@ -1,0 +1,89 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #94d6ec;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 450px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+.logo {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-top: 55px;
+    height: 180px;
+}
+
+.logo_title {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    height: 180px;
+
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    padding-top: 65px;
+    background: rgba(69,123,230, 0.7);
+}
+
+.form_container {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 350px;
+    display: block;
+    background:  rgb(76, 129, 234);
+    margin-bottom: 0px;
+}
+
+form {
+    padding-top: 60px;
+    text-align: center;
+}
+
+.inputs_wrapper {
+    text-align: center;
+}
+
+.input_field div {
+    text-align: center;
+}
+
+input {
+    font-size: 14px;
+    border: 1px solid #e3e3e3;
+    border-radius: 30px;
+    padding-left: 10px;
+    height: 40px;
+    width: 250px;
+    margin-top: 20px;
+}
+
+.buttonEnter {
+    margin-top: 30px;
+    position: relative;
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(46,190,89);
+    padding: 10px 108px 10px 108px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}

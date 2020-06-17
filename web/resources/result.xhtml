@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" xml:lang="ru" lang="ru"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>#{customerBean.user.nameUser}</title>
+    <link rel="stylesheet" href="style/result.css"/>
+</h:head>
+<body>
+<c:if test="#{customerBean.user == null}">
+    <f:metadata>
+        <f:viewAction action="error.xhtml"/>
+    </f:metadata>
+</c:if>
+<header>
+    <div class="container">
+        <div class="title">
+            <h1>Добро пожаловать, #{customerBean.user.nameUser} !</h1>
+        </div>
+    </div>
+</header>
+<div class="container conOne">
+    <h:form>
+        <h:commandLink value="Выйти" action="#{customerBean.logOut}"/>
+    </h:form>
+    <h:form>
+        <h:commandLink value="Скачать XML" action="#{customerBean.downloadXML}"/>
+    </h:form>
+</div>
+<div class="container conTwo">
+    <ui:repeat value="#{customerBean.user.branch}" var="branch">
+        <table>
+            <h:dataTable value="#{branch.arrayCouches}" var="couch">
+                <f:facet name="header">#{branch.id}</f:facet>
+                <h:column>
+                    <f:facet name="header">Инициалы</f:facet>
+                    #{couch.initials}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">День рождения</f:facet>
+                    #{couch.birthday}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Номер телефона</f:facet>
+                    #{couch.phoneNumber}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Специализация</f:facet>
+                    #{couch.specialization}
+                </h:column>
+
+                <h:column>
+                    <h:form>
+                        <h:commandButton value="Удалить тренера" action="#{customerBean.deleteCouch(couch.initials)}" styleClass="btn" style="background-color: transparent;
+                        color: white;
+                        border: 1px solid white;
+                        padding: 5px 10px;">
+                        </h:commandButton>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+            <h:form>
+                <h:commandButton value="Добавить тренера" action="#{couchBean.insertCouch(branch.id)}" styleClass="btn" style="background-color: transparent;
+                color: white;
+                border: 1px solid white;
+                padding: 5px 10px;
+                margin-bottom: 15px">
+                </h:commandButton>
+            </h:form>
+        </table>
+    </ui:repeat>
+</div>
+</body>
+
+</html>

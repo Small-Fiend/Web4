@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="ru" lang="ru"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Добавить тренера</title>
+    <link rel="stylesheet" type="text/css" href="style/insert.css"/>
+</h:head>
+
+<h:body>
+    <h:form>
+        <span>#{flash.keep.get("ID")}</span>
+
+        <h:inputText value="#{couchBean.initials}" a:placeholder="Инициалы" required="true"
+                     requiredMessage="Введите инициалы" validator="#{couchBean.titleValidator}"/>
+        <h:inputText value="#{couchBean.birthday}" a:placeholder="День рождения" required="true"
+                     requiredMessage="Введите дату рождения" validator="#{couchBean.birthdayValid}"/>
+        <h:inputText value="#{couchBean.specialization}"  a:placeholder="Специализация" required="true"
+                     requiredMessage="Введите специализацию" validator="#{couchBean.titleValidator}"/>
+        <h:inputText value="#{couchBean.phoneNumber}" a:placeholder="Номер телефона" required="true"
+                     requiredMessage="Введите номер телефона" validator="#{couchBean.sizeValidator}"/>
+        <h:commandButton value="Добавить" action="#{couchBean.addCouch(customerBean)}" styleClass="btn"/>
+        <h:panelGroup layout="block">
+            <h:messages style="color: red"/>
+        </h:panelGroup>
+    </h:form>
+</h:body>
+
+
+</html>
